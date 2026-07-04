@@ -1,0 +1,144 @@
+/* public/css/chat.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #1a1a1a;
+    color: #e5e5e5;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    background-color: #111;
+    border-right: 1px solid #2a2a2a;
+    transition: width 0.3s ease;
+}
+
+.sidebar-item {
+    transition: background-color 0.2s ease;
+}
+.sidebar-item:hover {
+    background-color: #2a2a2a;
+}
+
+/* Main Chat Area */
+.chat-container {
+    background-color: #1a1a1a;
+}
+
+/* Message Bubbles */
+.message-bot {
+    background-color: #2a2a2a;
+    border-left: 3px solid #ff2d20; /* Laravel Red */
+}
+
+.message-user {
+    background-color: transparent;
+}
+
+/* Input Area */
+.input-wrapper {
+    background: #2a2a2a;
+    border: 1px solid #333;
+    transition: all 0.2s ease-in-out;
+}
+.input-wrapper:focus-within {
+    border-color: #ff2d20;
+    box-shadow: 0 0 10px rgba(255, 45, 32, 0.2);
+}
+
+.chat-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #e5e5e5;
+    resize: none;
+    max-height: 200px;
+}
+
+.chat-input::placeholder {
+    color: #888;
+}
+
+/* Button hover effects */
+.btn-primary {
+    background-color: #ff2d20;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.btn-primary:hover {
+    background-color: #e0261b;
+}
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+/* Laravel Logo Animation */
+.laravel-glow {
+    animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    from { filter: drop-shadow(0 0 2px rgba(255, 45, 32, 0.4)); }
+    to { filter: drop-shadow(0 0 8px rgba(255, 45, 32, 0.8)); }
+}
+
+/* Typing Indicator */
+.dot-flashing {
+    position: relative;
+    width: 6px;
+    height: 6px;
+    border-radius: 5px;
+    background-color: #ff2d20;
+    color: #ff2d20;
+    animation: dot-flashing 1s infinite linear alternate;
+    animation-delay: 0.5s;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.dot-flashing::before, .dot-flashing::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+}
+.dot-flashing::before {
+    left: -10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 5px;
+    background-color: #ff2d20;
+    color: #ff2d20;
+    animation: dot-flashing 1s infinite alternate;
+    animation-delay: 0s;
+}
+.dot-flashing::after {
+    left: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 5px;
+    background-color: #ff2d20;
+    color: #ff2d20;
+    animation: dot-flashing 1s infinite alternate;
+    animation-delay: 1s;
+}
+
+@keyframes dot-flashing {
+    0% { background-color: #ff2d20; }
+    50%, 100% { background-color: rgba(255, 45, 32, 0.2); }
+}
